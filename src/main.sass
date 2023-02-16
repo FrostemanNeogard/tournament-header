@@ -1,0 +1,86 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap')
+
+// Imports
+@import './stylesheets/tournament-header.sass'
+
+// Variables
+$main-background: #3f3f3f
+
+$primary-color: #ffab61
+$secondary-color: #72f172
+
+$main-font-family: 'Nunito', sans-serif
+$main-font-color: #d6d6d6
+$main-font-weight: 400
+  
+// Generic boilerplate
+*, *::before, *::after
+  box-sizing: border-box
+body, html
+  margin: 0
+  padding: 0
+  background: $main-background
+  font-family: $main-font-family
+  color: $main-font-color
+  font-weight: $main-font-weight
+
+// Styling
+#root
+  padding: 5vmin
+
+  .header-interface
+    display: flex
+    flex-direction: column
+    gap: 1rem 0
+
+    button, select, input
+      border: none
+      background-color: grey
+      color: white
+      font-size: 200%
+      border-radius: 5px
+      height: 4rem
+      width: 100%
+
+    button
+      text-align: left
+      align-self: center
+
+    form
+      display: flex
+      flex-direction: column
+      justify-content: center
+      gap: 1rem 0
+
+      label
+        align-self: flex-end
+        width: 100%
+        text-transform: uppercase
+
+      input
+        border: none
+        border-radius: 5px
+        padding: 0 5px
+        background-color: grey
+        color: white
+        font-size: 150%
+      
+      // Hide up/down buttons on number input
+      // - FIREFOX -
+      input[type=number]
+        -moz-appearance: textfield
+        appearance: textfield
+      // - CHROME -
+      input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
+        -webkit-appearance: none
+
+      div
+        width: 100%
+        display: grid
+        justify-content: center
+        grid-auto-flow: column
+        grid-template-columns: repeat(3, 33%)
+        grid-template-rows: repeat(2, 100%)
+        gap: 0 1rem
+        margin: 3rem 0

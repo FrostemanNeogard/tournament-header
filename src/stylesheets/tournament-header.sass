@@ -1,0 +1,117 @@
+.header-background
+  &.preview
+    padding: 50px 0
+    height: fit-content
+    &::before
+      content: "PREVIEW"
+      font-size: 2em
+      margin-bottom: 5%
+      font-weight: bold
+      text-align: center
+      display: block
+  &:not(.preview)
+    height: 100vh
+    background-color: transparent
+    width: 80vw
+
+  // Generic styling
+  .rendered-header
+    display: flex
+    margin-left: auto
+    margin-right: auto
+    height: 5em
+    justify-content: center
+    align-items: center
+    width: 50em
+    font-size: 1.5em
+    h2
+      margin: 0
+      padding: 0
+      font-size: 1em
+    .player-side
+      h1
+        padding: 0
+        margin: 0
+        font-size: 1.2em
+      // Reverse order of score and player name for Player 2
+      &:last-of-type      // Select player 2's div
+        h1:first-of-type     // Set the first element's (player 2's name) order
+          order: 2
+        h1:last-of-type    // Set the second element's (player 2's score) order
+          order: 1
+
+
+  // Theme-specific styling
+  &.flower
+    .rendered-header
+      display: flex
+      background-image: url('https://cdn.discordapp.com/attachments/882893970915610624/1074357628408447067/flower-header-fixed-height.png')
+      background-size: cover
+      background-repeat: no-repeat
+      background-position-x: 50%
+      background-position-y: 50%
+      width: 1920px
+      height: fit-content
+      font-size: 34px
+
+    h2
+      width: 55%
+      height: 100%
+      // border: 1px solid black
+      text-align: center
+
+    .rendered-header.reversed
+      .player-side:first-of-type
+        order: 3
+        justify-content: left
+        h1:first-of-type
+          order: 2
+          margin-left: 35px
+          margin-right: 0
+        h1:last-of-type
+          order: 1
+
+      h2
+        order: 2
+
+      .player-side:last-of-type
+        order: 1
+        justify-content: right
+        h1:first-of-type
+          order: 1
+          margin-right: 35px
+          margin-left: 0
+        h1:last-of-type
+          order: 2
+
+    .player-side
+      width: 80%
+      display: flex
+      overflow-x: hidden
+      white-space: nowrap
+
+      span
+        color: rgb(242, 35, 83)
+
+      &:first-of-type
+        justify-content: flex-end
+        h1:first-of-type
+          margin-right: 35px
+          text-align: right
+
+      &:last-of-type
+        justify-content: flex-start
+        h1:first-of-type
+          margin-left: 35px
+          text-align: left
+
+      // Player names
+      h1:first-of-type
+        width: fit-content
+        overflow-x: hidden
+
+      // Score
+      h1:last-of-type
+        justify-self: flex-start
+        width: 80px
+        text-align: center
